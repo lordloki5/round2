@@ -1,0 +1,35 @@
+{
+  "properties": {
+    "street": {
+      "title": "Street",
+      "type": "string"
+    },
+    "city": {
+      "title": "City",
+      "type": "string"
+    },
+    "zip_code": {
+      "title": "Zip Code",
+      "type": "string"
+    },
+    "country": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Country"
+    }
+  },
+  "required": [
+    "street",
+    "city",
+    "zip_code"
+  ],
+  "title": "Address",
+  "type": "object"
+}

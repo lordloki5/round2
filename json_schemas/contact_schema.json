@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "phone": {
+      "title": "Phone",
+      "type": "string"
+    },
+    "email": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Email"
+    }
+  },
+  "required": [
+    "phone"
+  ],
+  "title": "Contact",
+  "type": "object"
+}

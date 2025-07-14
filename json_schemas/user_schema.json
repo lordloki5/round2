@@ -1,0 +1,92 @@
+{
+  "$defs": {
+    "Address": {
+      "properties": {
+        "street": {
+          "title": "Street",
+          "type": "string"
+        },
+        "city": {
+          "title": "City",
+          "type": "string"
+        },
+        "zip_code": {
+          "title": "Zip Code",
+          "type": "string"
+        },
+        "country": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Country"
+        }
+      },
+      "required": [
+        "street",
+        "city",
+        "zip_code"
+      ],
+      "title": "Address",
+      "type": "object"
+    },
+    "Contact": {
+      "properties": {
+        "phone": {
+          "title": "Phone",
+          "type": "string"
+        },
+        "email": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Email"
+        }
+      },
+      "required": [
+        "phone"
+      ],
+      "title": "Contact",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "age": {
+      "title": "Age",
+      "type": "integer"
+    },
+    "address": {
+      "$ref": "#/$defs/Address"
+    },
+    "contacts": {
+      "items": {
+        "$ref": "#/$defs/Contact"
+      },
+      "title": "Contacts",
+      "type": "array"
+    }
+  },
+  "required": [
+    "name",
+    "age",
+    "address",
+    "contacts"
+  ],
+  "title": "User",
+  "type": "object"
+}

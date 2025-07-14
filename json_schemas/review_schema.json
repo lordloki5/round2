@@ -1,0 +1,161 @@
+{
+  "$defs": {
+    "Address": {
+      "properties": {
+        "street": {
+          "title": "Street",
+          "type": "string"
+        },
+        "city": {
+          "title": "City",
+          "type": "string"
+        },
+        "zip_code": {
+          "title": "Zip Code",
+          "type": "string"
+        },
+        "country": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Country"
+        }
+      },
+      "required": [
+        "street",
+        "city",
+        "zip_code"
+      ],
+      "title": "Address",
+      "type": "object"
+    },
+    "Contact": {
+      "properties": {
+        "phone": {
+          "title": "Phone",
+          "type": "string"
+        },
+        "email": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Email"
+        }
+      },
+      "required": [
+        "phone"
+      ],
+      "title": "Contact",
+      "type": "object"
+    },
+    "Product": {
+      "properties": {
+        "product_id": {
+          "title": "Product Id",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "price": {
+          "title": "Price",
+          "type": "number"
+        },
+        "tags": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "product_id",
+        "name",
+        "price"
+      ],
+      "title": "Product",
+      "type": "object"
+    },
+    "User": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "age": {
+          "title": "Age",
+          "type": "integer"
+        },
+        "address": {
+          "$ref": "#/$defs/Address"
+        },
+        "contacts": {
+          "items": {
+            "$ref": "#/$defs/Contact"
+          },
+          "title": "Contacts",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "age",
+        "address",
+        "contacts"
+      ],
+      "title": "User",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "review_id": {
+      "title": "Review Id",
+      "type": "integer"
+    },
+    "user": {
+      "$ref": "#/$defs/User"
+    },
+    "product": {
+      "$ref": "#/$defs/Product"
+    },
+    "rating": {
+      "title": "Rating",
+      "type": "integer"
+    },
+    "comment": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Comment"
+    }
+  },
+  "required": [
+    "review_id",
+    "user",
+    "product",
+    "rating"
+  ],
+  "title": "Review",
+  "type": "object"
+}
